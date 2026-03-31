@@ -1,0 +1,35 @@
+name: Portafolio CI (pnpm)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      # Instalamos pnpm antes que nada
+      - name: Instalar pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # O la versión que estés usando específicamente
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Validar tipos y Astro Check
+        run: pnpm run check
+
+      - name: Intentar Build de Producción
+        run: pnpm run build
