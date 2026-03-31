@@ -1,4 +1,4 @@
-name: Portafolio CI (pnpm)
+name: Portafolio CI
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         with:
           version: 10.18.2
 
-     - name: Configurar Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24.3.0
