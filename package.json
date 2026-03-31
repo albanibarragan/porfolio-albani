@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "astro check && tsc --noEmit",
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.ts,.astro",
     "prepare": "husky"
