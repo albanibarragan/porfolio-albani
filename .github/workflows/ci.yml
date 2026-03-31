@@ -13,16 +13,15 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      # Instalamos pnpm antes que nada
       - name: Instalar pnpm
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@v4
         with:
-          version: 9 # O la versión que estés usando específicamente
+          version: 10.18.2
 
-      - name: Configurar Node.js
+     - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24.3.0
           cache: 'pnpm'
 
       - name: Instalar dependencias
